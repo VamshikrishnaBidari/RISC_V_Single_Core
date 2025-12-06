@@ -20,7 +20,7 @@ module register_file(clk, rst, WE3, A1, A2, A3, WD3, RD1, RD2);
             for (i = 0; i < 32; i = i + 1) begin
                 reg_file[i] <= 32'b0;
             end
-        end else if (WE3) begin
+        end else if (WE3 && A3 != 5'd0) begin
             reg_file[A3] <= WD3; // Write data to register A3
         end
     end

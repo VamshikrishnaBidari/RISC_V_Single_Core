@@ -18,7 +18,7 @@ module alu (
     // 2-to-1 MUX for selecting between B and NOT B
     assign mux_1 = (aluControl[0] == 1'b0) ? B : not_b;
     assign {carry_out, sum} = A + mux_1 + aluControl[0];          // ADD operation
-    assign slt = {31{1'b0}, sum[31]}; // Set on Less Than operation
+    assign slt = {{31{1'b0}}, sum[31]};  // Set on Less Than operation
 
     // 4-to-1 MUX for final result selection
     assign mux_2 = (aluControl[2:0] == 3'b000) ? sum :
