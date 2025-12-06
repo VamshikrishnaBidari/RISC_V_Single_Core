@@ -8,6 +8,7 @@ module register_file(clk, rst, WE3, A1, A2, A3, WD3, RD1, RD2);
     // 32 x 32-bit register file
     reg [31:0] reg_file [31:0];
 
+
     // Read operations
     assign RD1 = (rst == 0) ? 32'b0 : reg_file[A1];
     assign RD2 = (rst == 0) ? 32'b0 : reg_file[A2];
